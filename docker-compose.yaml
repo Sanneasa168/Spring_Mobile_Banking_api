@@ -1,0 +1,18 @@
+version: "3.9"
+
+volumes:
+  vol-sbc10:
+
+services:
+  sbc10-postgres:
+    image: "postgres:16.3-bullseye"
+    container_name: "sbc10-postgres"
+    ports:
+      - "6666:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: neasa168
+      POSTGRES_USER: neasa
+      POSTGRES_DB: db_sbc10
+    volumes:
+      - "vol-sbc10:/var/lib/postgresql/data"
